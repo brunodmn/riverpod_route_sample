@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_route_sample/providers/app_provider.dart';
+import 'package:riverpod_route_sample/states/app_state.dart';
 import 'package:riverpod_route_sample/widgets/scaffold_wrapper.dart';
 
 part 'routes.g.dart';
@@ -66,6 +66,25 @@ class LoginRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) {
     return ScaffoldWrapper(
       child: Consumer(builder: (context, ref, child) {
+        ref.listen(appProviderProvider, (_, state) {
+          if (state is AppStateError) {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: const Text('Error'),
+                  content: Text(state.error.toString()),
+                  actions: [
+                    TextButton(
+                      child: const Text('OK'),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ],
+                );
+              },
+            );
+          }
+        });
         void submit() {
           ref.read(appProviderProvider.notifier).signIn();
         }

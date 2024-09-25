@@ -15,18 +15,25 @@ part 'router.g.dart';
 GoRouter router(RouterRef ref) {
   final GlobalKey<NavigatorState> rootNavigatorKey =
       GlobalKey<NavigatorState>();
-
-  final appState = ref.watch(appProviderProvider);
-  print('appState $appState');
+  final listenable = ValueNotifier<AppState>(const AppStateLoading());
+  ref.listen(
+    appProviderProvider,
+    (_, state) => listenable.value = state,
+  );
 
   final router = GoRouter(
+    restorationScopeId: 'router',
+    routes: $appRoutes,
+    navigatorKey: rootNavigatorKey,
     initialLocation: SplashRoute().location,
+    refreshListenable: listenable,
     redirect: (context, state) {
+      final appState = ref.read(appProviderProvider);
       // if signing, wont redirect on error or loading
       final isSigningIn = state.matchedLocation == LoginRoute().location;
-      print('matchedLocation ${state.matchedLocation}');
-      print('isSigningIn $isSigningIn');
       switch (appState) {
+        case AppStateInitial():
+          return SplashRoute().location;
         case AppStateLoading():
           return isSigningIn ? null : SplashRoute().location;
         case AppStateNotSignedIn():
@@ -39,11 +46,12 @@ GoRouter router(RouterRef ref) {
           return isSigningIn ? null : ErrorRoute(message: '$error').location;
       }
     },
-    routes: $appRoutes,
-    navigatorKey: rootNavigatorKey,
   );
 
-  ref.onDispose(router.dispose);
+  ref.onDispose(() {
+    listenable.dispose();
+    router.dispose();
+  });
 
   return router;
 }

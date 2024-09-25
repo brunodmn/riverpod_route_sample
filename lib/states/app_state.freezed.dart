@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AppState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(App app) notSignedIn,
     required TResult Function(App app, String token) success,
@@ -26,6 +27,7 @@ mixin _$AppState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(App app)? notSignedIn,
     TResult? Function(App app, String token)? success,
@@ -34,6 +36,7 @@ mixin _$AppState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(App app)? notSignedIn,
     TResult Function(App app, String token)? success,
@@ -43,6 +46,7 @@ mixin _$AppState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AppStateInitial value) initial,
     required TResult Function(AppStateLoading value) loading,
     required TResult Function(AppStateNotSignedIn value) notSignedIn,
     required TResult Function(AppStateSuccess value) success,
@@ -51,6 +55,7 @@ mixin _$AppState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppStateInitial value)? initial,
     TResult? Function(AppStateLoading value)? loading,
     TResult? Function(AppStateNotSignedIn value)? notSignedIn,
     TResult? Function(AppStateSuccess value)? success,
@@ -59,6 +64,7 @@ mixin _$AppState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppStateInitial value)? initial,
     TResult Function(AppStateLoading value)? loading,
     TResult Function(AppStateNotSignedIn value)? notSignedIn,
     TResult Function(AppStateSuccess value)? success,
@@ -86,6 +92,129 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
 
   /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$AppStateInitialImplCopyWith<$Res> {
+  factory _$$AppStateInitialImplCopyWith(_$AppStateInitialImpl value,
+          $Res Function(_$AppStateInitialImpl) then) =
+      __$$AppStateInitialImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AppStateInitialImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateInitialImpl>
+    implements _$$AppStateInitialImplCopyWith<$Res> {
+  __$$AppStateInitialImplCopyWithImpl(
+      _$AppStateInitialImpl _value, $Res Function(_$AppStateInitialImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AppStateInitialImpl implements AppStateInitial {
+  const _$AppStateInitialImpl();
+
+  @override
+  String toString() {
+    return 'AppState.initial()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AppStateInitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(App app) notSignedIn,
+    required TResult Function(App app, String token) success,
+    required TResult Function(Object? error) error,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(App app)? notSignedIn,
+    TResult? Function(App app, String token)? success,
+    TResult? Function(Object? error)? error,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(App app)? notSignedIn,
+    TResult Function(App app, String token)? success,
+    TResult Function(Object? error)? error,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppStateInitial value) initial,
+    required TResult Function(AppStateLoading value) loading,
+    required TResult Function(AppStateNotSignedIn value) notSignedIn,
+    required TResult Function(AppStateSuccess value) success,
+    required TResult Function(AppStateError value) error,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppStateInitial value)? initial,
+    TResult? Function(AppStateLoading value)? loading,
+    TResult? Function(AppStateNotSignedIn value)? notSignedIn,
+    TResult? Function(AppStateSuccess value)? success,
+    TResult? Function(AppStateError value)? error,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppStateInitial value)? initial,
+    TResult Function(AppStateLoading value)? loading,
+    TResult Function(AppStateNotSignedIn value)? notSignedIn,
+    TResult Function(AppStateSuccess value)? success,
+    TResult Function(AppStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AppStateInitial implements AppState {
+  const factory AppStateInitial() = _$AppStateInitialImpl;
 }
 
 /// @nodoc
@@ -129,6 +258,7 @@ class _$AppStateLoadingImpl implements AppStateLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(App app) notSignedIn,
     required TResult Function(App app, String token) success,
@@ -140,6 +270,7 @@ class _$AppStateLoadingImpl implements AppStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(App app)? notSignedIn,
     TResult? Function(App app, String token)? success,
@@ -151,6 +282,7 @@ class _$AppStateLoadingImpl implements AppStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(App app)? notSignedIn,
     TResult Function(App app, String token)? success,
@@ -166,6 +298,7 @@ class _$AppStateLoadingImpl implements AppStateLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AppStateInitial value) initial,
     required TResult Function(AppStateLoading value) loading,
     required TResult Function(AppStateNotSignedIn value) notSignedIn,
     required TResult Function(AppStateSuccess value) success,
@@ -177,6 +310,7 @@ class _$AppStateLoadingImpl implements AppStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppStateInitial value)? initial,
     TResult? Function(AppStateLoading value)? loading,
     TResult? Function(AppStateNotSignedIn value)? notSignedIn,
     TResult? Function(AppStateSuccess value)? success,
@@ -188,6 +322,7 @@ class _$AppStateLoadingImpl implements AppStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppStateInitial value)? initial,
     TResult Function(AppStateLoading value)? loading,
     TResult Function(AppStateNotSignedIn value)? notSignedIn,
     TResult Function(AppStateSuccess value)? success,
@@ -286,6 +421,7 @@ class _$AppStateNotSignedInImpl implements AppStateNotSignedIn {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(App app) notSignedIn,
     required TResult Function(App app, String token) success,
@@ -297,6 +433,7 @@ class _$AppStateNotSignedInImpl implements AppStateNotSignedIn {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(App app)? notSignedIn,
     TResult? Function(App app, String token)? success,
@@ -308,6 +445,7 @@ class _$AppStateNotSignedInImpl implements AppStateNotSignedIn {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(App app)? notSignedIn,
     TResult Function(App app, String token)? success,
@@ -323,6 +461,7 @@ class _$AppStateNotSignedInImpl implements AppStateNotSignedIn {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AppStateInitial value) initial,
     required TResult Function(AppStateLoading value) loading,
     required TResult Function(AppStateNotSignedIn value) notSignedIn,
     required TResult Function(AppStateSuccess value) success,
@@ -334,6 +473,7 @@ class _$AppStateNotSignedInImpl implements AppStateNotSignedIn {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppStateInitial value)? initial,
     TResult? Function(AppStateLoading value)? loading,
     TResult? Function(AppStateNotSignedIn value)? notSignedIn,
     TResult? Function(AppStateSuccess value)? success,
@@ -345,6 +485,7 @@ class _$AppStateNotSignedInImpl implements AppStateNotSignedIn {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppStateInitial value)? initial,
     TResult Function(AppStateLoading value)? loading,
     TResult Function(AppStateNotSignedIn value)? notSignedIn,
     TResult Function(AppStateSuccess value)? success,
@@ -460,6 +601,7 @@ class _$AppStateSuccessImpl implements AppStateSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(App app) notSignedIn,
     required TResult Function(App app, String token) success,
@@ -471,6 +613,7 @@ class _$AppStateSuccessImpl implements AppStateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(App app)? notSignedIn,
     TResult? Function(App app, String token)? success,
@@ -482,6 +625,7 @@ class _$AppStateSuccessImpl implements AppStateSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(App app)? notSignedIn,
     TResult Function(App app, String token)? success,
@@ -497,6 +641,7 @@ class _$AppStateSuccessImpl implements AppStateSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AppStateInitial value) initial,
     required TResult Function(AppStateLoading value) loading,
     required TResult Function(AppStateNotSignedIn value) notSignedIn,
     required TResult Function(AppStateSuccess value) success,
@@ -508,6 +653,7 @@ class _$AppStateSuccessImpl implements AppStateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppStateInitial value)? initial,
     TResult? Function(AppStateLoading value)? loading,
     TResult? Function(AppStateNotSignedIn value)? notSignedIn,
     TResult? Function(AppStateSuccess value)? success,
@@ -519,6 +665,7 @@ class _$AppStateSuccessImpl implements AppStateSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppStateInitial value)? initial,
     TResult Function(AppStateLoading value)? loading,
     TResult Function(AppStateNotSignedIn value)? notSignedIn,
     TResult Function(AppStateSuccess value)? success,
@@ -613,6 +760,7 @@ class _$AppStateErrorImpl implements AppStateError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(App app) notSignedIn,
     required TResult Function(App app, String token) success,
@@ -624,6 +772,7 @@ class _$AppStateErrorImpl implements AppStateError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(App app)? notSignedIn,
     TResult? Function(App app, String token)? success,
@@ -635,6 +784,7 @@ class _$AppStateErrorImpl implements AppStateError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(App app)? notSignedIn,
     TResult Function(App app, String token)? success,
@@ -650,6 +800,7 @@ class _$AppStateErrorImpl implements AppStateError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AppStateInitial value) initial,
     required TResult Function(AppStateLoading value) loading,
     required TResult Function(AppStateNotSignedIn value) notSignedIn,
     required TResult Function(AppStateSuccess value) success,
@@ -661,6 +812,7 @@ class _$AppStateErrorImpl implements AppStateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppStateInitial value)? initial,
     TResult? Function(AppStateLoading value)? loading,
     TResult? Function(AppStateNotSignedIn value)? notSignedIn,
     TResult? Function(AppStateSuccess value)? success,
@@ -672,6 +824,7 @@ class _$AppStateErrorImpl implements AppStateError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppStateInitial value)? initial,
     TResult Function(AppStateLoading value)? loading,
     TResult Function(AppStateNotSignedIn value)? notSignedIn,
     TResult Function(AppStateSuccess value)? success,

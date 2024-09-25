@@ -5,7 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../models/app.dart';
 part 'fake_app_repository.g.dart';
 
-const double kProbabiltyOfError = 0.2;
+const double kProbabiltyOfError = 0.6;
 const int kDelayDuration = 1;
 
 class FakeAppRepository {

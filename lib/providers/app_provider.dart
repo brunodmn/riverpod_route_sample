@@ -20,7 +20,7 @@ class AppProvider extends _$AppProvider {
       debugPrint('[AppProvider] disposed...');
     });
     unawaited(_fetchApp());
-    return const AppStateLoading();
+    return const AppStateInitial();
   }
 
   Future<void> _fetchApp() async {
